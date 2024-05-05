@@ -8,7 +8,7 @@
     <title>Enjoy The Outdoors</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Outdoors</a>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -27,65 +27,27 @@
         </div>
     </nav>
     <div>National Parks</div>
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Location
-        </button>
-        <ul class="dropdown-menu"></ul>
+    <div class="d-flex">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Location
+            </button>
+            <ul id="location-dropdown-menu" class="dropdown-menu"></ul>
+        </div>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Park Type
+            </button>
+            <ul id="parktype-dropdown-menu" class="dropdown-menu"></ul>
+        </div>
+        <button class="btn btn-primary" onclick="clearSearch()">Clear Search</button>
     </div>
     <div class="card-container"></div>
+
     <script src="../scripts/nationalParkData.js"></script>
     <script src="../scripts/parkTypeData.js"></script>
     <script src="../scripts/locationData.js"></script>
-    <script>
-        const dropdownMenu = document.querySelector('.dropdown-menu');
-        const cardContainer = document.querySelector('.card-container');
-
-        document.addEventListener('DOMContentLoaded', function() {
-            updateDrowdownMenu(nationalParksArray);
-        });
-
-        dropdownMenu.addEventListener('click', function(event) {
-            cardContainer.innerHTML = '';
-            if (event.target.matches('.dropdown-item')) {
-                const selectedLocation = event.target.textContent;
-                const parksInSelectedLocation = nationalParksArray.filter(park => park.State === selectedLocation);
-                displayParks(parksInSelectedLocation);
-            }
-        });
-
-        function displayParks(parksArray) {
-            console.log('--[]][]-', parksArray)
-            const cardContainer = document.querySelector('.card-container');
-            parksArray.forEach(park => {
-                const card = document.createElement('div');
-                card.classList.add('col-md', 'mb-4');
-                card.innerHTML = `
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">${park.LocationName}</h5>
-                            <p class="card-text">${park.City}, ${park.State}</p>
-                        </div>
-                    </div>
-                `
-                cardContainer.appendChild(card);
-            });
-        }
-
-        function updateDrowdownMenu(nationalParksArray) {
-            const dropdownMenu = document.querySelector('.dropdown-menu');
-            const locations = locationsArray; // locations array is defined in locationData.js
-            locations.forEach(location => {
-                const dropdownItem = document.createElement('li');
-                const link = document.createElement('a');
-                link.classList.add('dropdown-item');
-                link.href = '#'; // You can replace '#' with the actual link if available
-                link.textContent = location;
-                dropdownItem.appendChild(link);
-                dropdownMenu.appendChild(dropdownItem);
-            });
-        }
-    </script>
+    <script src="../scripts/nationalParksFunctions.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

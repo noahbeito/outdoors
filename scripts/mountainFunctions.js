@@ -1,4 +1,5 @@
 function displayMountainCards(mountains) {
+    let mountainsContainer = document.querySelector('.card-container');
 
     mountains.forEach(mountain => {
         getSunsetForMountain(mountain.lat, mountain.lng).then(data => {
@@ -8,7 +9,6 @@ function displayMountainCards(mountains) {
             console.log("sunset: ", mountain.sunset);
             return mountain
         }).then((mountain) => {
-            let mountainsContainer = document.querySelector('.card-container');
             let row = document.createElement('div');
             row.classList.add('row');
             mountainsContainer.appendChild(row);

@@ -30,47 +30,7 @@
 
     </div>
     <script src="../scripts/mountainData.js"></script>
-    <script>
-        window.onload = function() {
-            let mountains = mountainsArray;
-
-            async function getSunsetForMountain(lat, lng){
-                let response = await fetch(
-                `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lng}&date=today`);
-                let data = await response.json();
-                return data;
-            }
-     
-            let mountainsContainer = document.querySelector('.card-container');
-            let row = document.createElement('div');
-            row.classList.add('row');
-            mountainsContainer.appendChild(row);
-
-            mountains.forEach(mountain => {
-                let sunrise;
-                let sunset;
-                getSunsetForMountain(mountain.lat, mountain.lng).then(data => {
-                    sunrise = data.results.sunrise;
-                    sunset = data.results.sunset;
-                    let mountainCard = document.createElement('div');
-                    mountainCard.classList.add('col-md', 'mb-4');
-                    mountainCard.innerHTML = `
-                    <div class="card">
-                        <img class="card-img-top" src="../images/${mountain.img}" alt="${mountain.name}">
-                        <div class="card-body">
-                            <h5 class="card-title">${mountain.name}</h5>
-                            <p class="card-subtitle">${mountain.effort}</p>
-                            <p class="card-subtitle">Sunrise: ${sunrise}</p>
-                            <p class="card-subtitle">Sunset: ${sunset}</p>
-                            <br>
-                            <p class="card-text">${mountain.desc}</p>
-                        </div>
-                    </div>
-                    `;
-                    row.appendChild(mountainCard);
-                });
-            });
-        }
-    </script>
+    <script src="../scripts/mountainFunctions.js"></script>
+    <script>displayMountainCards(mountainsArray)</script>
 </body>
 </html>

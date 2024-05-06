@@ -26,7 +26,6 @@ dropdownMenuParkTypes.addEventListener('click', function(event) {
 });
 
 function displayParks(parksArray) {
-    console.log('--[]][]-', parksArray)
     const cardContainer = document.querySelector('.card-container');
     parksArray.forEach(park => {
         const card = document.createElement('div');

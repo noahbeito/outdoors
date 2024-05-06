@@ -11,6 +11,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">🏔️</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="navbar-nav">
@@ -32,17 +35,17 @@
           <h1 class="display-4">Explore the Mountains</h1>
           <p class="lead">Discover the most stunning mountains and enjoy the beauty of nature.</p>
           <hr class="my-4">
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-center flex-column flex-lg-row">
             <p>Click on a mountain card to learn more about it.</p>
             <div class="spacer"></div>
-            <div id="dropdown-button-container" class="d-flex">
+            <div id="dropdown-button-container" class="d-flex flex-column flex-lg-row">
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="btn btn-secondary dropdown-toggle mb-2 mb-lg-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Mountain
                     </button>
                     <ul id="mountain-dropdown-menu" class="dropdown-menu"></ul>
                 </div>
-                <button id="all-button" class="btn btn-primary" onclick="displayMountainCards(mountainsArray)">View All</button>
+                <button id="all-button" class="btn btn-primary mb-2 mb-lg-0" onclick="displayMountainCards(mountainsArray)">View All</button>
             </div>
         </div>
         </div>

@@ -8,9 +8,9 @@
     <title>Enjoy The Outdoors</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-sticky top-0">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Outdoors</a>
+            <a class="navbar-brand" href="#">🏔️</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="navbar-nav">
@@ -20,18 +20,52 @@
                         <a class="nav-link" href="nationalparks.html">National Parks</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="mountains.html">Mountains</a>
+                        <a class="nav-link active" href="mountains.html">Mountains</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="card-container">
+    <br>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Explore the Mountains</h1>
+          <p class="lead">Discover the most stunning mountains and enjoy the beauty of nature.</p>
+          <hr class="my-4">
+          <div class="d-flex align-items-center">
+            <p>Click on a mountain card to learn more about it.</p>
+            <div class="spacer"></div>
+            <div id="dropdown-button-container" class="d-flex">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Mountain
+                    </button>
+                    <ul id="mountain-dropdown-menu" class="dropdown-menu"></ul>
+                </div>
+                <button id="all-button" class="btn btn-primary" onclick="displayMountainCards(mountainsArray)">View All</button>
+            </div>
+        </div>
+        </div>
+      </div>
+    <div id="mountain-cards-container" class="card-container container"></div>
+    <script>
+        const mountainsContainer = document.querySelector('.card-container');
+        const dropdownMenuMountains = document.querySelector('#mountain-dropdown-menu');
 
-    </div>
+        dropdownMenuMountains.addEventListener('click', function(event) {
+            mountainsContainer.innerHTML = '';
+            if (event.target.matches('.dropdown-item')) {
+                const selectedMountain = searchMountainByName(event.target.textContent);
+                console.log("selectedMountain: ", selectedMountain);
+                displayMountain(selectedMountain);
+            }
+        });
+    </script>
     <script src="../scripts/mountainData.js"></script>
     <script src="../scripts/mountainFunctions.js"></script>
-    <script>displayMountainCards(mountainsArray)</script>
+    <script>
+        updateMountainDropdownMenu()
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

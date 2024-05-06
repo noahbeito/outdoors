@@ -10,11 +10,11 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Outdoors</a>
+            <a class="navbar-brand" href="#">🏔️</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="navbar-nav">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link active" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="pages/nationalparks.html">National Parks</a>
@@ -26,17 +26,19 @@
             </div>
         </div>
     </nav>
-    <div>Home</div>
-    <div>
-        <a href="pages/mountains.html">Mountains</a> // could make each of these a clickable bootstrap card with a picture
-        <a href="pages/nationalparks.html">National Parks</a>
+    <video autoplay muted playsinline>
+        <source src="./videos/11998490-uhd_3840_2160_30fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    <div class="container mt-5">
+        <h1 class="welcome-text">Welcome to Enjoy The Outdoors!</h1>
+        <p class="welcome-text">This site is dedicated to helping you explore the beauty of the outdoors. You can discover stunning mountains and beautiful national parks. Click on the links below to start your adventure:</p>
+        <br>
+        <div class="d-flex justify-content-around mt-4">
+            <a class="btn btn-primary btn-lg" href="pages/nationalparks.html">Explore National Parks</a>
+            <a class="btn btn-primary btn-lg" href="pages/mountains.html">Explore Mountains</a>
+        </div>
     </div>
-    <script src="./scripts/mountainData.js"></script>
-    <script>
-        window.onload = function() {
-            displayMountainCards(mountainsArray);
-        }
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

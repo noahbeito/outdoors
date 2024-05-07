@@ -4,7 +4,7 @@ async function displayMountainCards(mountains) {
         await getSunsetForMountain(mountain.coords.lat, mountain.coords.lng).then(data => {
             mountain.sunrise = formatTimeStr(data.results.sunrise);
             mountain.sunset = formatTimeStr(data.results.sunset);
-        });
+        }).catch(err => console.error(err));
 
         let row = document.createElement('div');
         row.classList.add('row');
@@ -43,8 +43,6 @@ function displayMountain(mountain) {
     getSunsetForMountain(mountain.coords.lat, mountain.coords.lng).then(data => {
         mountain.sunrise = formatTimeStr(data.results.sunrise);
         mountain.sunset = formatTimeStr(data.results.sunset);
-        console.log("sunrise: ", mountain.sunrise);
-        console.log("sunset: ", mountain.sunset);
         let row = document.createElement('div');
         row.classList.add('row');
         mountainsContainer.appendChild(row);
@@ -74,8 +72,7 @@ function displayMountain(mountain) {
             mountainCard.querySelector('.card').classList.toggle('flipped');
         });
         row.appendChild(mountainCard);
-    })
-
+    }).catch(err => console.error(err));
 }
 
 async function getSunsetForMountain(lat, lng){

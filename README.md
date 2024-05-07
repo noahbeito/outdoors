@@ -11,7 +11,7 @@ This project is a web application dedicated to helping users explore the beauty 
 ### National Parks
 ![National Parks](./images/Screenshot%202024-05-07%20at%207.38.12 AM.png)
 ### Mountains
-![Mountains](./images/Screenshot%202024-05-07%20at%207.38.41 AM.png)
+![Mountains](./images/Screenshot%202024-05-07%20at%208.18.32 AM.png)
 
 ---
 

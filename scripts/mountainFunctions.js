@@ -1,7 +1,7 @@
 async function displayMountainCards(mountains) {
     mountainsContainer.innerHTML = '';
     for (const mountain of mountains) {
-        await getSunsetForMountain(mountain.lat, mountain.lng).then(data => {
+        await getSunsetForMountain(mountain.coords.lat, mountain.coords.lng).then(data => {
             mountain.sunrise = formatTimeStr(data.results.sunrise);
             mountain.sunset = formatTimeStr(data.results.sunset);
         });
@@ -40,7 +40,7 @@ async function displayMountainCards(mountains) {
 
 function displayMountain(mountain) {
     mountainsContainer.innerHTML = '';
-    getSunsetForMountain(mountain.lat, mountain.lng).then(data => {
+    getSunsetForMountain(mountain.coords.lat, mountain.coords.lng).then(data => {
         mountain.sunrise = formatTimeStr(data.results.sunrise);
         mountain.sunset = formatTimeStr(data.results.sunset);
         console.log("sunrise: ", mountain.sunrise);

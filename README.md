@@ -1,4 +1,4 @@
-# The Outdoors
+# 🏔️ Enjoy the Outdoors 🏔️
 
 This project is a web application dedicated to helping users explore the beauty of the outdoors. It provides information about stunning mountains and beautiful national parks.
 
